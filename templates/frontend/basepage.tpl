@@ -25,7 +25,7 @@
 	<!-- Ionicons -->
 	<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
 	<!-- Theme style -->
-	<!-- <link href="{$smarty.const.WWW_TOP}/themes/omega/dist/css/AdminLTE.css" rel="stylesheet" type="text/css"/> -->
+	<link href="{$smarty.const.WWW_TOP}/themes/omega/dist/css/AdminLTE.css" rel="stylesheet" type="text/css"/>
 	<!-- AdminLTE Skins. We have chosen the skin-blue for this starter
 		  page. However, you can choose any other skin. Make sure you
 		  apply the skin class to the body tag so the changes take effect.
@@ -135,6 +135,62 @@
 				</div>
 			</nav>
 		</header>
+				<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar">
+			<!-- sidebar: style can be found in sidebar.less -->
+			<section class="sidebar">
+				<!-- Sidebar Menu -->
+				<ul class="sidebar-menu">
+					<li class="header">Main</li>
+					{if ($loggedin)=="true"}
+					<!-- Optionally, you can add icons to the links -->
+					<li><a href="{$site->home_link}"><i class="fa fa-home"></i><span> Home</span> <span
+									class="fa arrow"></span></a></li>
+					<li class="treeview">
+						<a href="#"><i class="fa fa-list-ol"></i><span> Browse</span></a>
+						<ul class="treeview-menu">
+							<li><a href="{$serverroot}newposterwall"><i
+											class="fa fa-fire"></i><span> New Releases</span></a></li>
+							<li><a href="{$serverroot}console"><i
+											class="fa fa-gamepad"></i><span> Console</span></a></li>
+							<li><a href="{$serverroot}movies"><i
+											class="fa fa-film"></i><span> Movies</span></a></li>
+							<li><a href="{$serverroot}music"><i
+											class="fa fa-music"></i><span> Music</span></a></li>
+							<li><a href="{$serverroot}games"><i
+											class="fa fa-gamepad"></i><span> Games</span></a></li>
+							<li><a href="{$serverroot}series"><i
+											class="fa fa-television"></i><span> TV</span></a></li>
+							<li><a href="{$serverroot}xxx"><i class="fa fa-venus-mars"></i><span> Adult</span></a></li>
+							<li><a href="{$serverroot}books"><i class="fa fa-book"></i><span> Books</span></a></li>
+							<li><a href="{$serverroot}browse"><i
+											class="fa fa-list-ul"></i><span> Browse All Releases</span></a></li>
+							<li><a href="{$serverroot}prehash"><i class="fa fa-list-ol"></i><span> PreHash</span></a>
+							</li>
+							<li><a href="{$serverroot}predb"><i class="fa fa-list-alt"></i><span> PreDB</span></a></li>
+						</ul>
+					</li>
+					<li class="treeview">
+						<a href="#"><i class="fa fa-list-ol"></i><span> Articles & Links</span></a>
+						<ul class="treeview-menu">
+							<li><a href="{$serverroot}contact-us"><i
+											class="fa fa-envelope-o"></i><span> Contact</span> <span
+											class="fa arrow"></span></a></li>
+							<li><a href="{$serverroot}search"><i class="fa fa-search"></i> Search</a></li>
+							<li><a href="{$serverroot}rss"><i class="fa fa-rss"></i> RSS Feeds</a></li>
+							<li><a href="{$serverroot}apihelp"><i class="fa fa-cloud"></i> API</a></li>
+						</ul>
+					</li>
+					<li><a href="{$serverroot}logout"><i class="fa fa-unlock"></i><span> Sign out</span></a>
+						{else}
+					<li><a href="{$serverroot}login"><i class="fa fa-lock"></i><span> Login</span></a>
+						{/if}
+					</li>
+				</ul>
+				<!-- /.sidebar-menu -->
+			</section>
+			<!-- /.sidebar -->
+		</aside>
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->

@@ -10,7 +10,7 @@
 		<webMaster>{$site->email} ({$site->title|escape})</webMaster>
 		<category>{$site->meta_keywords}</category>
 		<image>
-			<url>{$smarty.const.WWW_TOP}templates_shared/images/logo.png</url>
+			<url>{$smarty.const.WWW_TOP}themes/omega/dist/img/logo.png</url>
 			<title>{$site->title|escape}</title>
 			<link href="{$smarty.const.WWW_TOP}"/>
 			<description>Visit {$site->title|escape} - {$site->strapline|escape}</description>
