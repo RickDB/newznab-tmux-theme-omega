@@ -179,7 +179,7 @@
 								   value="Delete"/>
 						{/if}
 						<div class="pull-right" align="right">
-							<a class=" btn btn-sm btn-warning" title="RSS feed of current search" href="{$smarty.const.WWW_TOP}/rss?t={$category[0]}&amp;dl=1&amp;i={$userdata.id}&amp;r={$userdata.rsstoken}&amp;uFilter={$search|escape:'html'}">Rss <i class="fa-icon-rss"></i></a>
+							<a class=" btn btn-sm btn-warning" title="RSS feed of current search" href="{$smarty.const.WWW_TOP}/rss?t={$category[0]}&amp;dl=1&amp;uFilter={$search|escape:'html'}&amp;i={$userdata.id}&amp;r={$userdata.rsstoken}">Rss <i class="fa-icon-rss"></i></a>
 						</div>
 					</div>
 				</div>
