@@ -1,4 +1,4 @@
-{if $nodata != ""}
+{if $nodata}
 	<div class="header">
 		{assign var="catsplit" value=">"|explode:$catname}
 		<h2>View > <strong>TV Series</strong></h2>
@@ -17,7 +17,6 @@
 {else}
 	<div class="header">
 		{assign var="catsplit" value=">"|explode:$catname}
-		<h2>View > <strong>TV Series</strong></h2>
 		<div class="breadcrumb-wrapper">
 			<ol class="breadcrumb">
 				<li><a href="{$smarty.const.WWW_TOP}{$site->home_link}">Home</a></li>
@@ -35,15 +34,15 @@
 	</h1>
 	{if $catname != ''}<span class="text-info h5">Current category shown: {$catname|escape:"htmlall"}</span>{/if}
 	<div class="tvseriesheading">
-		{if $rage[0].imgdata != ""}
-			<center>
-				<img class="shadow img img-polaroid" style="max-height:300px;" alt="{$rage[0].releasetitle} Logo"
-					 src="{$smarty.const.WWW_TOP}/getimage?type=tvrage&amp;id={$rage[0].id}"/>
-			</center>
-			<br/>
-		{/if}
+ 		{if $rage[0].hascover != 0}
+ 			<center>
+ 				<img class="shadow img img-polaroid" style="max-height:300px;" alt="{$rage[0].releasetitle} Logo"
+					 src="{$smarty.const.WWW_TOP}/covers/tvrage/{$rage[0].rageid}.jpg"/>
+ 			</center>
+ 			<br/>
+ 		{/if}
 		<p>
-			{if $seriesGenre != ''}<b>{$seriesgenre}</b><br/>{/if}
+			{if $seriesgenre != ''}<b>{$seriesgenre}</b><br/>{/if}
 			<span class="descinitial">{$seriesdescription|escape:"htmlall"|nl2br|magicurl}</span>
 		</p>
 	</div>

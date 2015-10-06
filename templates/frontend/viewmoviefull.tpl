@@ -1,6 +1,5 @@
 <div class="header">
 	{assign var="catsplit" value=">"|explode:$catname}
-	<h2>View > <strong>Movie</strong></h2>
 	<div class="breadcrumb-wrapper">
 		<ol class="breadcrumb">
 			<li><a href="{$smarty.const.WWW_TOP}{$site->home_link}">Home</a></li>

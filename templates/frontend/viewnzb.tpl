@@ -1,5 +1,4 @@
 <div class="header">
-	<h2>NZB > <strong>Details</strong></h2>
 	<div class="breadcrumb-wrapper">
 		<ol class="breadcrumb">
 			<li><a href="{$smarty.const.WWW_TOP}{$site->home_link}">Home</a></li>
@@ -819,7 +818,7 @@
 						 alt="{$movie.title|escape:"htmlall"}">
 				{/if}
 				{if $rage && $release.rageid > 0 && $rage.imgdata != ""}
-					<img src="{$smarty.const.WWW_TOP}/getimage?type=tvrage&amp;id={$rage.id}"
+					<img src="{$smarty.const.WWW_TOP}/covers/tvrage/{$release.rageid}.jpg"
 						 alt="{$rage.releasetitle|escape:"htmlall"}"/>
 				{/if}
 				{if $anidb && $release.anidbid > 0 && $anidb.picture != ""}

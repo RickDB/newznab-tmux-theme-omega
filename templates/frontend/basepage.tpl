@@ -204,14 +204,10 @@
 		<!-- /.content-wrapper -->
 		<!-- Main Footer -->
 		<footer class="main-footer">
-			<!-- To the right -->
-			<div class="pull-right hidden-xs">
-				<img src="/themes/omega/dist/img/hypnotoad.png"/>
-			</div>
 			<!-- Default to the left -->
 			<strong>Copyright &copy; {$smarty.now|date_format:"%Y"} <a
 						href="https://github.com/DariusIII/">newznab-tmux</a>.</strong> This software is open source,
-			released under the GPLv2 license
+			released under the GPLv2 license <img src="/themes/omega/dist/img/hypnotoad.png"/>
 		</footer>
 	</div>
 	<!-- ./wrapper -->
