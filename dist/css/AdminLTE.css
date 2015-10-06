@@ -94,14 +94,11 @@ body {
 .content-wrapper,
 .right-side {
   min-height: 100%;
-  background-color: #ecf0f5;
   z-index: 800;
 }
 .main-footer {
-  background: #c8c8c8;
+  background: #222d32;
   padding: 15px;
-  color: #444;
-  border-top: 1px solid #d2d6de;
 }
 /* Fixed layout */
 .fixed .main-header,
