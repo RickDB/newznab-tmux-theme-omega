@@ -528,7 +528,8 @@ a:focus {
 }
 .sidebar-menu li.header {
   padding: 10px 25px 10px 15px;
-  font-size: 12px;
+  font-size: 40px;
+  background: #ffffff;
 }
 .sidebar-menu li > a > .fa-angle-left {
   width: auto;
@@ -552,6 +553,7 @@ a:focus {
   padding: 0;
   margin: 0;
   padding-left: 5px;
+  background: #2c3b41 none repeat;
 }
 .sidebar-menu .treeview-menu .treeview-menu {
   padding-left: 20px;
@@ -905,7 +907,6 @@ a:focus {
   box-shadow: none;
 }
 .dropdown-menu > li > a {
-  color: #777;
 }
 .dropdown-menu > li > a > .glyphicon,
 .dropdown-menu > li > a > .fa,
@@ -2222,7 +2223,6 @@ a:focus {
 .nav > li > a:hover,
 .nav > li > a:active,
 .nav > li > a:focus {
-  color: #444;
   background: #f7f7f7;
 }
 /* NAV PILLS */

@@ -90,16 +90,17 @@
 						</div>
 					</div>
 					<hr>
+					{$resultCount = 1}
 					{foreach $results as $result}
 						<!-- Iteratie: {counter} -->
 						{if isset($result.category_name)}
 							{assign var="catnamesplit" value=">"|explode:$result.category_name}
 						{/if}
-						{if $result@iteration is odd by 1}
+						{if $result@iteration is odd by $resultCount}
 							<!-- Begin Row -->
 							<div class="row">
 								<!-- Left -->
-								<div class="col-md-6 small-gutter-right movie-height">
+								<div class="col-md-6 small-gutter-right">
 									<div class="panel panel-default">
 										<div class="panel-body">
 											<div class="row small-gutter-left">
@@ -121,9 +122,9 @@
 													{foreach from=$msplits item=m name=loop}
 													{if $smarty.foreach.loop.first}
 													<a href="{$smarty.const.WWW_TOP}/details/{$mguid[$m@index]}/{$mname[$m@index]|escape:"htmlall"}"><img
-																class="cover"
+																class=""
 																src="{if $result.cover == 1}{$smarty.const.WWW_TOP}covers/xxx/{$result.id}-cover.jpg{else}{$smarty.const.WWW_TOP}themes_shared/images/nocover.png{/if}"
-																width="100" border="0"
+																width="250" border="0"
 																alt="{$result.title|escape:"htmlall"}"/>{if $mfailed[$m@index] > 0} <i class="fa fa-exclamation-circle" style="color: red" title="This release has failed to download for some users"></i>{/if}</a>
 													{if $result.classused == "ade"}
 														<a
@@ -244,9 +245,10 @@
 									</div>
 								</div>
 								<!-- /Left -->
-								{else}
+								{/if}
+								{if $result@iteration is odd by $resultCount + 1}
 								<!-- Right -->
-								<div class="col-md-6 small-gutter-left movie-height">
+								<div class="col-md-6 small-gutter-left">
 									<div class="panel panel-default">
 										<div class="panel-body">
 											<div class="row small-gutter-left">
@@ -268,9 +270,9 @@
 													{foreach from=$msplits item=m name=loop}
 													{if $smarty.foreach.loop.first}
 													<a href="{$smarty.const.WWW_TOP}/details/{$mguid[$m@index]}/{$mname[$m@index]|escape:"htmlall"}"><img
-																class="cover"
+																class=""
 																src="{if $result.cover == 1}{$smarty.const.WWW_TOP}covers/xxx/{$result.id}-cover.jpg{else}{$smarty.const.WWW_TOP}themes_shared/images/nocover.png{/if}"
-																width="100" border="0"
+																width="250" border="0"
 																alt="{$result.title|escape:"htmlall"}"/>{if $mfailed[$m@index] > 0} <i class="fa fa-exclamation-circle" style="color: red" title="This release has failed to download for some users"></i>{/if}</a>
 													{if $result.classused == "ade"}
 														<a

@@ -1,5 +1,5 @@
-{if $nodata != ""}
-<div class="header">
+ {if isset($nodata)} 
+ <div class="header">
 	{assign var="catsplit" value=">"|explode:$catname}
 	<h2>View > <strong>Anime</strong></h2>
 	<p>{$nodata}</p>

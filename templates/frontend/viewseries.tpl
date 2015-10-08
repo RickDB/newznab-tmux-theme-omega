@@ -106,6 +106,15 @@
 								{/if}
 							</div>
 						</div>
+						<div class="btn-group pull-right">
+							<input class="form-control input-sm" type="text" placeholder="Filter.." id="filter-text" type="text">
+						</div>
+						<div class="btn-group pull-right" data-toggle="buttons-radio" id="filter-quality">
+							<button class="btn btn-sm btn-info" data-quality="">Any</button>
+							<button class="btn btn-sm btn-info" data-quality="720p">720p</button>
+							<button class="btn btn-sm btn-info" data-quality="1080p">1080p</button>
+							<button class="btn btn-sm btn-info" data-quality="complete bluray">BDISK</button>
+						</div>
 					</div>
 					<br clear="all"/>
 					<a id="latest"></a>
@@ -128,7 +137,7 @@
 													<table class="tb_{$seasonnum} data table table-condensed table-bordered table-responsive table-hover"
 														   id="browsetable">
 														<thead>
-														<tr>
+														<tr class="dont-filter">
 															<th>Ep</th>
 															<th>Name</th>
 															<th><input id="chkSelectAll{$seasonnum}" type="checkbox"
@@ -145,7 +154,7 @@
 														</thead>
 														{foreach $season as $episodes}
 															{foreach $episodes as $result}
-																<tr class="{cycle values=",alt"}"
+																<tr class="{cycle values=",alt"} filter" data-name="{$result.searchname|escape:"htmlall"|lower|replace:".":" "}"
 																	id="guid{$result.guid}">
 																	{if $result@total>1 && $result@index == 0}
 																		<td rowspan="{$result@total}" width="30">
@@ -220,7 +229,8 @@
 																				title="Send to my Queue"
 																				href="#"><i
 																					class="fa fa-send-o">
-																			</a>{/if}
+																			</a>
+																		{/if}
 																		{if isset($isadmin)}
 																			<br/>
 																			<a class="label label-warning"

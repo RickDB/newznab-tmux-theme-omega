@@ -50,7 +50,7 @@
 			</div>
 			<form id="nzb_multi_operations_form" action="get">
 				<div class="well well-small">
-					<div class="nzb_multi_operations">
+					<div class="nzb_multi_operations btn-toolbar">
 						{if $section != ''}View:
 							<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}">Covers</a>
 							|
@@ -68,10 +68,19 @@
 									   value="Send to Queue"/>
 							{/if}
 						</div>
+						<div class="btn-group pull-right">
+							<input class="form-control input-sm" type="text" placeholder="Filter.." id="filter-text" type="text">
+						</div>
+						<div class="btn-group pull-right" data-toggle="buttons-radio" id="filter-quality">
+							<button class="btn btn-sm btn-info" data-quality="">Any</button>
+							<button class="btn btn-sm btn-info" data-quality="720p">720p</button>
+							<button class="btn btn-sm btn-info" data-quality="1080p">1080p</button>
+							<button class="btn btn-sm btn-info" data-quality="complete bluray">BDISK</button>
+						</div>
 						{if isset($isadmin)}
 							<div class="pull-right">
 								Admin:
-								<div class="btn-group">
+								<div class="btn-group btn-group-sm">
 									<input type="button" class="nntmux_multi_operations_edit btn btn-sm btn-warning"
 										   value="Edit"/>
 									<input type="button" class="nntmux_multi_operations_delete btn btn-sm btn-danger"
@@ -87,7 +96,7 @@
 							<div class="panel-body pagination2">
 								<table style="width:100%;"
 									   class="data table table-condensed table-striped table-responsive table-hover">
-									<tr>
+									<tr  class="dont-filter"">
 										<th>
 											<input id="chkSelectAll" type="checkbox" class="nntmux_check_all"/>
 											<label for="chkSelectAll" style="display:none;">Select All</label>
@@ -140,9 +149,10 @@
 									{assign var="minnerfiles" value=","|explode:$result.grp_rarinnerfilecount}
 									{assign var="mhaspreview" value=","|explode:$result.grp_haspreview}
 									{assign var="mcat" value=","|explode:$result.grp_release_categoryid}
-									{assign var="mcatname" value=","|explode:$result.grp_release_categoryName}
+									{assign var="mcatname" value=","|explode:$result.grp_release_categoryname}
+									
 									{foreach from=$msplits item=m}
-										<tr class="{cycle values=",alt"}" id="guid{$mguid[$m@index]}">
+										<tr class="{cycle values=",alt"} filter" data-name="{$mname[$m@index]|escape:"htmlall"|replace:".":" "|lower}" id="guid{$mguid[$m@index]}">
 											<td class="check"><input id="chk{$mguid[$m@index]|substr:0:7}"
 																	 type="checkbox"
 																	 class="nzb_check"

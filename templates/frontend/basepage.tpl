@@ -244,6 +244,7 @@
 	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/themes/omega/scripts/sorttable.js"></script>
 	<!-- Newznab utils.js -->
 	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/themes/omega/scripts/utils.js"></script>
+	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/themes/omega/scripts/datafilter.js"></script>
 	<!-- Optionally, you can add Slimscroll and FastClick plugins.
 		  Both of these plugins are recommended to enhance the
 		  user experience. Slimscroll is required when using the
