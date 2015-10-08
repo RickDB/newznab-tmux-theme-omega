@@ -72,10 +72,10 @@
 							<input class="form-control input-sm" type="text" placeholder="Filter.." id="filter-text" type="text">
 						</div>
 						<div class="btn-group pull-right" data-toggle="buttons-radio" id="filter-quality">
-							<button class="btn btn-sm btn-info" data-quality="">Any</button>
-							<button class="btn btn-sm btn-info" data-quality="720p">720p</button>
-							<button class="btn btn-sm btn-info" data-quality="1080p">1080p</button>
-							<button class="btn btn-sm btn-info" data-quality="complete bluray">BDISK</button>
+							<button class="btn btn-sm btn-primary" data-quality="">Any</button>
+							<button class="btn btn-sm btn-primary" data-quality="720p">720p</button>
+							<button class="btn btn-sm btn-primary" data-quality="1080p">1080p</button>
+							<button class="btn btn-sm btn-primary" data-quality="complete bluray">BDISK</button>
 						</div>
 						{if isset($isadmin)}
 							<div class="pull-right">
