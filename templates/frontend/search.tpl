@@ -244,9 +244,9 @@
 									<a href="{$smarty.const.WWW_TOP}/nfo/{$result.guid}" title="View Nfo"
 									   class="modal_nfo label label-default" rel="nfo">Nfo</a>
 								{/if}
-								{if $result.imdbid > 0}
-									<a href="#" name="name{$result.imdbid}" title="View movie info"
-									   class="modal_imdb label label-default" rel="movie">Cover</a>
+								{if $result.imdbid > 0}<span><a
+											href="{$smarty.const.WWW_TOP}/movies/?imdb={$result.imdbid}"
+											class="label label-primary">view movie</a></span>
 								{/if}
 								{if $result.haspreview == 1 && $userdata.canpreview == 1}
 								<a href="{$smarty.const.WWW_TOP}/covers/preview/{$result.guid}_thumb.jpg"

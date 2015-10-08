@@ -59,7 +59,7 @@
 				{/foreach}
 			</select>
 		</div>
-		<input type="submit" class="btn btn-primary" value="Search!"/>
+		<input type="submit" class="btn btn-default" value="Search"/>
 	</form>
 </div>
 <form id="nzb_multi_operations_form" action="get">
