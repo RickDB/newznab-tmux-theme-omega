@@ -3,7 +3,7 @@
 	<div class="breadcrumb-wrapper">
 		<ol class="breadcrumb">
 			<li><a href="{$smarty.const.WWW_TOP}{$site->home_link}">Home</a></li>
-			/ {if isset($catsplit[0])} {$catsplit[0]}{/if} / {if isset($catsplit[1])} {$catsplit[1]}{/if}
+			/ {if isset($catsplit[0])} {$catsplit[0]}{/if}{if isset($catsplit[1])} / {$catsplit[1]}{/if}
 		</ol>
 	</div>
 </div>
@@ -132,7 +132,7 @@
 													href="{$smarty.const.WWW_TOP}/covers/preview/{$result.guid}_thumb.jpg"
 													name="name{$result.guid}" class="modal_prev label label-default" rel="preview">Preview</a></span>{/if}
 										{if $result.rageid > 0}<span class="label label-default"><a
-													href="{$smarty.const.WWW_TOP}/series/{$result.rageid}">View TV</a></span>{/if}
+													href="{$smarty.const.WWW_TOP}/series/{$result.rageid}">View Series</a></span>{/if}
 										{if $result.tvairdate != ""}<span class="label label-default" title="{$result.guid}">
 											Aired {if $result.tvairdate|strtotime > $smarty.now}in future{else}{$result.tvairdate|daysago}{/if}</span>{/if}
 										{if $result.anidbid > 0}<span class="label label-default"><a

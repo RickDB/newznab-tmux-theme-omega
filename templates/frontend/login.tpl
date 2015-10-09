@@ -59,6 +59,7 @@
               </div>
             </div><!-- /.col -->
             <div class="col-xs-4">
+			  <input type="hidden" name="redirect" value="{$redirect|escape:"htmlall"}" />
               <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
             </div><!-- /.col -->
           </div>
