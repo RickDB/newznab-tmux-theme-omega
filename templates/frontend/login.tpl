@@ -40,6 +40,7 @@
       <div class="login-box-body">
         <p class="login-box-msg">Please sign in to access the site</p>
         <form action="login" method="post">
+	      <input type="hidden" name="redirect" value="{$redirect|escape:"htmlall"}" />
           <div class="form-group has-feedback">
             <input id="username" name="username" type="text" class="form-control" placeholder="Username"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -59,7 +60,6 @@
               </div>
             </div><!-- /.col -->
             <div class="col-xs-4">
-			  <input type="hidden" name="redirect" value="{$redirect|escape:"htmlall"}" />
               <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
             </div><!-- /.col -->
           </div>
