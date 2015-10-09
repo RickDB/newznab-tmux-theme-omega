@@ -1,1 +1,1 @@
-This template is based on Admin LTE template.
+This is a fork of the Newznab-Tmux Omicron theme which is based on Admin LTE.
