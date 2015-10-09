@@ -14,10 +14,10 @@
 					<h1>{$release.searchname|escape:"htmlall"} {if $release.failed > 0}<span class="btn btn-default btn-xs" title="This release has failed to download for some users">
 							<i class ="fa fa-thumbs-o-up"></i> {$release.grabs} Grabs / <i class ="fa fa-thumbs-o-down"></i> {$release.failed} Failed Downloads</span>{/if}</h1>
 					{if isset($isadmin)}
-						<a class="label label-warning"
+						<a class="label label-warning pull-right"
 						   href="{$smarty.const.WWW_TOP}/admin/release-edit.php?id={$release.id}&amp;from={$smarty.server.REQUEST_URI}"
 						   title="Edit release">Edit</a>
-						<a class="label label-danger"
+						<a class="label label-danger  pull-right"
 						   href="{$smarty.const.WWW_TOP}/admin/release-delete.php?id={$release.id}&amp;from={$smarty.server.HTTP_REFERER}"
 						   title="Delete release">Delete</a>
 					{/if}

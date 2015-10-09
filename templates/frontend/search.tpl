@@ -170,6 +170,26 @@
 		</div>
 		<hr>
 		<table class="data table table-condensed table-striped table-responsive table-hover" id="browsetable">
+			<thead>
+			<tr>
+				<th><input id="chkSelectAll" type="checkbox" class="nzb_check_all"/></th>
+				<th>Name
+					<a title="Sort Descending" href="{$orderbyname_desc}">
+						<i class="fa-icon-caret-down text-muted"> </i>
+					</a>
+					<a title="Sort Ascending" href="{$orderbyname_asc}">
+						<i class="fa-icon-caret-up text-muted"> </i>
+					</a>
+				</th>
+				<th>Category</th>
+				<th>Posted</th>
+				<th>Size</th>
+				<th>Files</th>
+				<th>Downloads</th>
+				<th>Action</th>
+			</tr>
+			</thead>
+			<tbody>
 			{foreach from=$results item=result}
 				<tr class="{cycle values=",alt"}{if $lastvisit|strtotime<$result.adddate|strtotime} new{/if}"
 					id="guid{$result.guid}">
@@ -245,7 +265,7 @@
 									   class="modal_console label label-default" rel="console">Cover</a>
 								{/if}
 								{if $result.rageid > 0}
-									<a class="label label-default"
+									<a class="label label-info"
 									   href="{$smarty.const.WWW_TOP}/series/{$result.rageid}" title="View all episodes">View
 										Series</a>
 								{/if}
@@ -322,6 +342,7 @@
 					</td>
 				</tr>
 			{/foreach}
+			</tbody>
 		</table>
 		<br/>
 		<div class="row">

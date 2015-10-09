@@ -11,50 +11,50 @@
 			</div>
 			<div class="box-body">
 			<div id="moviefull" style="min-height:100%;">
-				{if $result.cover == 1}
-					<img class="pull-left" style="margin-right:50px; max-height:278px;"
+					{if $result.cover == 1}
+					<img class="pull-left" style="margin-right:50px; max-height:300px;"
 						 alt="{$result.title|escape:"htmlall"} Logo"
 						 src="{$smarty.const.WWW_TOP}/covers/movies/{$result.imdbid}-cover.jpg"></img>
 					{if $result.trailer != ''}<div class="pull-right">{$result.trailer}&nbsp;&nbsp;&nbsp;</div>{/if}
-				{else}
-					<img class="pull-right" style="margin-right:50px; max-height:278px;"
-						 alt="{$result.title|escape:"htmlall"} Logo"
-						 src="{$smarty.const.WWW_TOP}themes_shared/images/nomoviecover.jpg"/>
-				{/if}
-				<span class="h1" style="display:inline;">{$result.title|escape:"htmlall"} ({$result.year})
-						&nbsp;<a
-							class="btn btn-sm btn-warning" target="_blank"
-							href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result.imdbid}/"
-							name="imdb{$result.imdbid}" title="View IMDB page for this movie">IMDB
-						</a>
-						<a target="_blank"
-						   href="{$site->dereferrer_link}http://trakt.tv/search/imdb/tt{$result.imdbid}/"
-						   name="trakt{$result.imdbid}" title="View Trakt page for this movie"
-						   class="btn btn-sm btn-danger" rel="trakt">TRAKT</a>
-				</span>
-				<h4>{if $result.genre != ''}{$result.genre|replace:"|":" / "}{/if}</h4>
-				{if $result.tagline != ''}
-					<p class="lead" style="margin-right:300px;">"{$result.tagline|escape:"htmlall"}"</p>
-				{/if}
-				<dl style="margin-right:300px;">
-					{if $result.plot != ''}
-						<dt>Plot</dt>
-						<dd>{$result.plot|escape:"htmlall"}</dd>
+					{else}
+						<img class="pull-right" style="margin-right:50px; max-height:300px;"
+							 alt="{$result.title|escape:"htmlall"} Logo"
+							 src="{$smarty.const.WWW_TOP}themes_shared/images/nomoviecover.jpg"/>
 					{/if}
-					{if $result.rating != ''}
-						<dt>Rating</dt>
-						<dd>{$result.rating}
-						/10 {if $result.ratingcount != ''}({$result.ratingcount|number_format} votes)</dd>{/if}
+					<span class="h1" style="display:inline;">{$result.title|escape:"htmlall"} ({$result.year})
+							&nbsp;<a
+								class="btn btn-sm btn-warning" target="_blank"
+								href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result.imdbid}/"
+								name="imdb{$result.imdbid}" title="View IMDB page for this movie">IMDB
+							</a>
+							<a target="_blank"
+							   href="{$site->dereferrer_link}http://trakt.tv/search/imdb/tt{$result.imdbid}/"
+							   name="trakt{$result.imdbid}" title="View Trakt page for this movie"
+							   class="btn btn-sm btn-danger" rel="trakt">TRAKT</a>
+					</span>
+					<h4>{if $result.genre != ''}{$result.genre|replace:"|":" / "}{/if}</h4>
+					{if $result.tagline != ''}
+						<p class="lead" style="margin-right:300px;">"{$result.tagline|escape:"htmlall"}"</p>
 					{/if}
-					{if $result.director != ''}
-						<dt>Director</dt>
-						<dd>{$result.director|replace:"|":", "}</dd>
-					{/if}
-					{if $result.actors != ''}
-						<dt>Actors</dt>
-						<dd>{$result.actors|replace:"|":", "}</dd>
-					{/if}
-				</dl>
+					<dl style="margin-right:300px;">
+						{if $result.plot != ''}
+							<dt>Plot</dt>
+							<dd>{$result.plot|escape:"htmlall"}</dd>
+						{/if}
+						{if $result.rating != ''}
+							<dt>Rating</dt>
+							<dd>{$result.rating}
+							/10 {if $result.ratingcount != ''}({$result.ratingcount|number_format} votes)</dd>{/if}
+						{/if}
+						{if $result.director != ''}
+							<dt>Director</dt>
+							<dd>{$result.director|replace:"|":", "}</dd>
+						{/if}
+						{if $result.actors != ''}
+							<dt>Actors</dt>
+							<dd>{$result.actors|replace:"|":", "}</dd>
+						{/if}
+					</dl>
 			</div>
 			<form id="nzb_multi_operations_form" action="get">
 				<div class="well well-small">

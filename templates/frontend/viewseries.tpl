@@ -53,8 +53,8 @@
 				From Tv Rage</a>
 		{/if}
 		<a class="btn btn-sm btn-default" target="_blank"
-		   href="{$site->dereferrer_link}http://www.tvrage.com/shows/id-{$rage[0].rageid}" title="View in TvRage">View
-			in Tv Rage</a>
+		   href="{$site->dereferrer_link}http://trakt.tv/search/tvrage/{$rage[0].rageid}" title="View at Trakt">View
+			at Trakt</a>
 		<a class="btn btn-sm btn-default"
 		   href="{$smarty.const.WWW_TOP}/rss?rage={$rage[0].rageid}{if $category != ''}&amp;t={$category}{/if}&amp;dl=1&amp;i={$userdata.id}&amp;r={$userdata.rsstoken}">RSS
 			for TV Show <i class="fa fa-rss"></i></a>
@@ -211,7 +211,7 @@
 																		   title="Add to Cart">
 																		</a>
 																		{if isset($sabintegrated)}
-																			<a class="fa fa-send-o icon_sab text-muted"
+																			<a class="fa fa-cloud-download icon_sab text-muted"
 																			   href="#"
 																			   title="Send to my Queue">
 																			</a>
@@ -222,13 +222,6 @@
 																				<img class="icon icon_nzbvortex"
 																					 alt="Send to my NZBVortex"
 																					 src="{$smarty.const.WWW_TOP}/themes_shared/images/icons/vortex/bigsmile.png">
-																			</a>
-																		{/if}
-																		{if isset($nzbgetintegrated)}<a
-																				class="icon icon_nzbget"
-																				title="Send to my Queue"
-																				href="#"><i
-																					class="fa fa-send-o">
 																			</a>
 																		{/if}
 																		{if isset($isadmin)}
