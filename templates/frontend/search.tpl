@@ -2,41 +2,14 @@
 	{$site->adbrowse}
 {/if}
 <div class="header">
-	<h2>{$site->title} > <strong>Search</strong></h2>
 	<div class="breadcrumb-wrapper">
 		<ol class="breadcrumb">
-			<li><a href="{$smarty.const.WWW_TOP}{$site->home_link}">Home</a></li>
-			/ Search
+			<li><a>Search results </a></li>
+			> {$search|escape:'html'}
 		</ol>
 	</div>
 </div>
-<div>
-	<center>
-		<a href="#" onclick="if (jQuery(this).text() == 'Advanced Search')
-					jQuery(this).text('Basic Search');
-				else
-					jQuery(this).text('Advanced Search');
-				jQuery('#sbasic,#sadvanced').toggle();
-				return false;">{if $sadvanced}Basic{else}Click For Advanced{/if} Search
-		</a>
-	</center>
-</div>
 <br>
-<div class="well well-sm">
-	<form method="get" action="{$smarty.const.WWW_TOP}/search">
-		<div id="sbasic" class="row" style="text-align:center;{if $sadvanced} display:none;{/if}">
-			<div class="col-md-6">
-				<input id="search" class="form-control" maxlength="50" name="search" value="{$search|escape:'html'}"
-					   type="search" placeholder="What are you looking for?"/>
-			</div>
-			<div class="col-md-6">
-				<input type="hidden" name="t" value="{if $category[0]!=""}{$category[0]}{else}-1{/if}" id="search_cat"/>
-				<input type="hidden" name="search_type" value="basic" id="search_type"/>
-				<input id="search_search_button" class="btn btn-primary" type="submit" value="Search"/>
-			</div>
-		</div>
-	</form>
-</div>
 <form method="get" action="{$smarty.const.WWW_TOP}/search">
 	<div id="sadvanced" {if not $sadvanced}style="display:none"{/if}>
 		<center>
@@ -178,13 +151,20 @@
 								   class="nzb_multi_operations_delete btn btn-sm btn-danger"
 								   value="Delete"/>
 						{/if}
-						<div class="pull-right" align="right">
-							<a class=" btn btn-sm btn-warning" title="RSS feed of current search" href="{$smarty.const.WWW_TOP}/rss?t={$category[0]}&amp;dl=1&amp;uFilter={$search|escape:'html'}&amp;i={$userdata.id}&amp;r={$userdata.rsstoken}">Rss <i class="fa-icon-rss"></i></a>
-						</div>
+						<a class=" btn btn-sm btn-warning" title="RSS feed of current search" href="{$smarty.const.WWW_TOP}/rss?t={$category[0]}&amp;dl=1&amp;uFilter={$search|escape:'html'}&amp;i={$userdata.id}&amp;r={$userdata.rsstoken}">Rss <i class="fa-icon-rss"></i></a>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<center>
+				<a href="#" onclick="if (jQuery(this).text() == 'Advanced Search')
+							jQuery(this).text('Basic Search');
+						else
+							jQuery(this).text('Advanced Search');
+						jQuery('#sbasic,#sadvanced').toggle();
+						return false;">{if $sadvanced}Basic{else}Click For Advanced{/if} Search
+				</a>
+			</center>
+			<div class="col-md-20" align="left">
 				{$pager}
 			</div>
 		</div>
@@ -377,7 +357,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-20" align="center">
 			{$pager}
 		</div>
 		<br><br><br>

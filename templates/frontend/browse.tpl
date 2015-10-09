@@ -69,7 +69,7 @@
 								<a class=" btn btn-sm btn-warning" title="RSS feed of current category" href="{$smarty.const.WWW_TOP}/rss?t={$category}&amp;dl=1&amp;i={$userdata.id}&amp;r={$userdata.rsstoken}">Rss <i class="fa-icon-rss"></i></a>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-20" align="center">
 							{$pager}
 						</div>
 						<table class="data table table-condensed table-striped table-responsive table-hover" cellspacing="0"
@@ -206,7 +206,7 @@
 								</div>
 							</div>
 						</div>
-							<div class="col-md-6">
+							<div class="col-md-20" align="center">
 							{$pager}
 						</div>
 					</div>
