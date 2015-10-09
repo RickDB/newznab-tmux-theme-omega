@@ -1,29 +1,37 @@
-<div class="header">
-	{assign var="catsplit" value=">"|explode:$catname}
-	<div class="breadcrumb-wrapper">
-		<ol class="breadcrumb">
-			<li><a href="{$smarty.const.WWW_TOP}{$site->home_link}">Home</a></li>
-			/ View Movie
-		</ol>
-	</div>
-</div>
+{assign var="catsplit" value=">"|explode:$catname}
 {if $results|@count > 0}
-	<div class="box-body">
 		{foreach from=$results item=result}
-			<div id="moviefull" style="min-height:340px;">
+			<div class="header">
+				<div class="breadcrumb-wrapper">
+					<ol class="breadcrumb">
+						<li><a href="{$smarty.const.WWW_TOP}/Movies">Movies</a></li>
+						/ {$result.title|escape:"htmlall"} ({$result.year})
+					</ol>
+				</div>
+			</div>
+			<div class="box-body">
+			<div id="moviefull" style="min-height:100%;">
 				{if $result.cover == 1}
-					<img class="pull-right" style="margin-right:50px; max-height:278px;"
+					<img class="pull-left" style="margin-right:50px; max-height:278px;"
 						 alt="{$result.title|escape:"htmlall"} Logo"
-						 src="{$smarty.const.WWW_TOP}/covers/movies/{$result.imdbid}-cover.jpg"/>
+						 src="{$smarty.const.WWW_TOP}/covers/movies/{$result.imdbid}-cover.jpg"></img>
+					{if $result.trailer != ''}<div class="pull-right">{$result.trailer}&nbsp;&nbsp;&nbsp;</div>{/if}
 				{else}
 					<img class="pull-right" style="margin-right:50px; max-height:278px;"
 						 alt="{$result.title|escape:"htmlall"} Logo"
 						 src="{$smarty.const.WWW_TOP}themes_shared/images/nomoviecover.jpg"/>
 				{/if}
-				<span class="h1" style="display:inline;">{$result.title|escape:"htmlall"} ({$result.year})</span><a
-						class="btn btn-transparent btn-primary" target="_blank"
-						href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result.imdbid}/"
-						name="imdb{$result.imdbid}" title="View IMDB page for this movie">View on IMDB</a>
+				<span class="h1" style="display:inline;">{$result.title|escape:"htmlall"} ({$result.year})
+						&nbsp;<a
+							class="btn btn-sm btn-warning" target="_blank"
+							href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result.imdbid}/"
+							name="imdb{$result.imdbid}" title="View IMDB page for this movie">IMDB
+						</a>
+						<a target="_blank"
+						   href="{$site->dereferrer_link}http://trakt.tv/search/imdb/tt{$result.imdbid}/"
+						   name="trakt{$result.imdbid}" title="View Trakt page for this movie"
+						   class="btn btn-sm btn-danger" rel="trakt">TRAKT</a>
+				</span>
 				<h4>{if $result.genre != ''}{$result.genre|replace:"|":" / "}{/if}</h4>
 				{if $result.tagline != ''}
 					<p class="lead" style="margin-right:300px;">"{$result.tagline|escape:"htmlall"}"</p>
@@ -50,14 +58,14 @@
 			</div>
 			<form id="nzb_multi_operations_form" action="get">
 				<div class="well well-small">
-					<div class="nzb_multi_operations btn-toolbar">
+					<div class="nzb_multi_operations">
+						With Selected:
 						{if $section != ''}View:
 							<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}">Covers</a>
 							|
 							<b>List</b>
 							<br/>
 						{/if}
-						With Selected:
 						<div class="btn-group">
 							<input type="button" class="nntmux_multi_operations_download btn btn-sm btn-success"
 								   value="Download NZBs"/>
@@ -66,6 +74,20 @@
 							{if isset($sabintegrated)}
 								<input type="button" class="nzb_multi_operations_sab btn btn-sm btn-primary"
 									   value="Send to Queue"/>
+							{/if}
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							{if isset($isadmin)}
+								<div class="pull-right">
+									Admin:
+									<div class="btn-group btn-group-sm">
+										<input type="button" class="nntmux_multi_operations_edit btn btn-sm btn-warning"
+											   value="Edit"/>
+										<input type="button" class="nntmux_multi_operations_delete btn btn-sm btn-danger"
+											   value="Delete"/>
+									</div>
+								</div>
 							{/if}
 						</div>
 						<div class="btn-group pull-right">
@@ -77,17 +99,6 @@
 							<button class="btn btn-sm btn-primary" data-quality="1080p">1080p</button>
 							<button class="btn btn-sm btn-primary" data-quality="complete bluray">BDISK</button>
 						</div>
-						{if isset($isadmin)}
-							<div class="pull-right">
-								Admin:
-								<div class="btn-group btn-group-sm">
-									<input type="button" class="nntmux_multi_operations_edit btn btn-sm btn-warning"
-										   value="Edit"/>
-									<input type="button" class="nntmux_multi_operations_delete btn btn-sm btn-danger"
-										   value="Delete"/>
-								</div>
-							</div>
-						{/if}
 					</div>
 				</div>
 				<div class="row">
@@ -203,7 +214,8 @@
 								<hr>
 								{if $results|@count > 10}
 									<div class="row">
-										<div class="col-md-8">
+										<div class="col-md-8>
+											With Selected:
 											<div class="nzb_multi_operations">
 												{if isset($section) && $section != ''}View:
 													<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}">Covers</a>
@@ -211,7 +223,6 @@
 													<b>List</b>
 													<br/>
 												{/if}
-												With Selected:
 												<div class="btn-group">
 													<input type="button"
 														   class="nzb_multi_operations_download btn btn-sm btn-success"
